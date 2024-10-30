@@ -135,7 +135,9 @@
       star.style.animationDuration = `${Math.random() * 2 + 1}s`;
       sky.appendChild(star);
     }
+
     const dataInicial = new Date('2023-08-30T20:50:00');
+
     function calcularTempoPassado() {
       const dataAtual = new Date();
       let anos = dataAtual.getFullYear() - dataInicial.getFullYear();
@@ -144,6 +146,7 @@
       let horas = dataAtual.getHours() - dataInicial.getHours();
       let minutos = dataAtual.getMinutes() - dataInicial.getMinutes();
       let segundos = dataAtual.getSeconds() - dataInicial.getSeconds();
+
       if (segundos < 0) {
         minutos--;
         segundos += 60;
@@ -165,13 +168,16 @@
         anos--;
         meses += 12;
       }
+
       return { anos, meses, dias, horas, minutos, segundos };
     }
+
     function atualizarContador() {
       const { anos, meses, dias, horas, minutos, segundos } = calcularTempoPassado();
-      document.getElementById('contador').innerText = 
+      document.getElementById('contador').innerText =
         `${anos} anos, ${meses} meses, ${dias} dias, ${horas} horas, ${minutos} minutos, ${segundos} segundos`;
     }
+
     atualizarContador();
     setInterval(atualizarContador, 1000);
   </script>
