@@ -7,7 +7,7 @@ body {
     justify-content: center;
     height: 100vh;
     background-color: #001; /* Fundo escuro que simula o céu noturno */
-    color: #333;
+    color: #eee; /* Cor clara para melhor contraste no fundo escuro */
     text-align: center;
     overflow: hidden; /* Oculta qualquer elemento que saia das bordas da página */
 }
@@ -74,6 +74,7 @@ h1 {
     background: #fff;
     border-radius: 50%; /* Forma circular da lua */
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Sombra para dar brilho */
+    z-index: 1; /* Coloca a lua em uma camada superior */
 }
 
 /* Animação de fade-in */
