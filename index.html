@@ -96,7 +96,7 @@
 <body>
     <div class="sky" id="sky"></div>
     
-    <h1>❤️ Contador de Panqueco e Pitpesa ❤️</h1>
+    <h1>❤️ Contador do melhor dia da minha vida! ❤️</h1>
     
     <div class="quadro">
         <div class="contador" id="contador">0 anos, 0 meses, 0 dias, 0 horas, 0 minutos, 0 segundos</div>
@@ -104,11 +104,7 @@
 
     <div class="moon"></div>
 
-    <!-- Música de fundo que toca automaticamente e em loop -->
-    <audio id="musica" src="https://example.com/sua-musica-de-fundo.mp3" loop autoplay></audio> <!-- Altere para o link correto -->
-
     <script>
-        // Gera as estrelas
         const sky = document.getElementById('sky');
         for (let i = 0; i < 100; i++) {
             const star = document.createElement('div');
@@ -118,7 +114,7 @@
             star.style.height = size + 'px';
             star.style.top = Math.random() * 100 + 'vh';
             star.style.left = Math.random() * 100 + 'vw';
-            star.style.animationDuration = Math.random() * 2 + 1 + 's';
+            star.style.animationDuration = (Math.random() * 2 + 1) + 's';
             sky.appendChild(star); // Adiciona a estrela ao céu
         }
 
@@ -160,7 +156,8 @@
 
         function atualizarContador() {
             const { anos, meses, dias, horas, minutos, segundos } = calcularTempoPassado();
-            document.getElementById('contador').innerText = `${anos} anos, ${meses} meses, ${dias} dias, ${horas} horas, ${minutos} minutos, ${segundos} segundos`;
+            document.getElementById('contador').innerText = 
+                anos + " anos, " + meses + " meses, " + dias + " dias, " + horas + " horas, " + minutos + " minutos, " + segundos + " segundos";
         }
 
         atualizarContador();
