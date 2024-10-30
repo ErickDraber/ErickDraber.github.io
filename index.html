@@ -1,185 +1,149 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contador - Panqueco e Pitpesa</title>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Dancing Script', cursive;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background-color: #ffe6e9;
-      color: #333;
-      text-align: center;
-    }
-    h1 {
-      margin-bottom: 20px;
-      color: #d6336c;
-      font-size: 2.5em;
-      text-shadow: 1px 1px 5px rgba(255, 192, 203, 0.5);
-    }
-    .contador {
-      font-size: 2em;
-      margin: 20px;
-      padding: 20px;
-      border: 2px solid #ff6f91;
-      border-radius: 15px;
-      background-color: rgba(255, 228, 225, 0.8);
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 15px rgba(255, 182, 193, 0.5);
-    }
-    .contador:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(255, 182, 193, 0.7);
-    }
-    .moon {
-      position: absolute;
-      top: 50px;
-      right: 50px;
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(circle at 30% 30%, rgba(173, 216, 230, 1), rgba(255, 255, 255, 0.8));
-      border-radius: 50%;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.3), 10px 10px 15px rgba(0, 0, 0, 0.2);
-      animation: moonGlow 5s infinite alternate ease-in-out, moonBlink 1.5s infinite alternate;
-    }
-    @keyframes moonBlink {
-      0% { opacity: 0.8; }
-      50% { opacity: 1; }
-      100% { opacity: 0.8; }
-    }
-    .star {
-      position: absolute;
-      background: white;
-      border-radius: 50%;
-      animation: twinkle 1.5s infinite alternate;
-    }
-    @keyframes twinkle {
-      0% { opacity: 0.3; }
-      50% { opacity: 1; }
-      100% { opacity: 0.3; }
-    }
-    .star:nth-child(even) {
-      animation-duration: 2s;
-    }
-    .star:nth-child(odd) {
-      animation-duration: 1s;
-    }
-    .moon::before, .moon::after {
-      content: '';
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(0, 0, 0, 0.15);
-      box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.4);
-    }
-    .moon::before {
-      width: 50px;
-      height: 50px;
-      top: 60px;
-      left: 40px;
-    }
-    .moon::after {
-      width: 40px;
-      height: 40px;
-      top: 130px;
-      right: 50px;
-    }
-    .moon .cratera1, .moon .cratera2, .moon .cratera3 {
-      position: absolute;
-      border-radius: 50%;
-      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
-      background: rgba(0, 0, 0, 0.2);
-    }
-    .moon .cratera1 {
-      width: 30px;
-      height: 30px;
-      top: 100px;
-      left: 110px;
-    }
-    .moon .cratera2 {
-      width: 40px;
-      height: 40px;
-      top: 140px;
-      left: 70px;
-    }
-    .moon .cratera3 {
-      width: 25px;
-      height: 25px;
-      top: 40px;
-      right: 80px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador - Panqueco e Pitpesa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <style>
+        /* CSS combinado */
+        body {
+            font-family: 'Dancing Script', cursive;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #ffe6e9;
+            color: #333;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #d6336c;
+            font-size: 2.5em;
+            text-shadow: 1px 1px 5px rgba(255, 192, 203, 0.5);
+        }
+        .contador {
+            font-size: 2em;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #ff6f91;
+            border-radius: 15px;
+            background-color: rgba(255, 228, 225, 0.8);
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(255, 182, 193, 0.5);
+        }
+        .contador:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 182, 193, 0.7);
+        }
+        .moon {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle at 30% 30%, rgba(173, 216, 230, 1), rgba(255, 255, 255, 0.8));
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.3), 10px 10px 15px rgba(0, 0, 0, 0.2);
+            animation: moonGlow 5s infinite alternate ease-in-out, moonBlink 1.5s infinite alternate;
+        }
+        @keyframes moonBlink {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { opacity: 0.8; }
+        }
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 1.5s infinite alternate;
+        }
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            50% { opacity: 1; }
+            100% { opacity: 0.3; }
+        }
+        .star:nth-child(even) { animation-duration: 2s; }
+        .star:nth-child(odd) { animation-duration: 1s; }
+        .moon::before, .moon::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.15);
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.4);
+        }
+        .moon::before {
+            width: 50px;
+            height: 50px;
+            top: 60px;
+            left: 40px;
+        }
+        .moon::after {
+            width: 40px;
+            height: 40px;
+            top: 130px;
+            right: 50px;
+        }
+        .moon .cratera1, .moon .cratera2, .moon .cratera3 {
+            position: absolute;
+            border-radius: 50%;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.2);
+        }
+        .moon .cratera1 { width: 30px; height: 30px; top: 100px; left: 110px; }
+        .moon .cratera2 { width: 40px; height: 40px; top: 140px; left: 70px; }
+        .moon .cratera3 { width: 25px; height: 25px; top: 40px; right: 80px; }
+    </style>
 </head>
 <body>
-  <div class="sky" id="sky"></div>
-  <h1>❤️ Contador do melhor dia da minha vida! ❤️</h1>
-  <div class="quadro">
-    <div class="contador" id="contador">0 anos, 0 meses, 0 dias, 0 horas, 0 minutos, 0 segundos</div>
-  </div>
-  <div class="moon"></div>
-  <script>
-    const sky = document.getElementById('sky');
-    for (let i = 0; i < 100; i++) {
-      const star = document.createElement('div');
-      star.className = 'star';
-      const size = Math.random() * 3 + 2;
-      star.style.width = `${size}px`;
-      star.style.height = `${size}px`;
-      star.style.top = `${Math.random() * 100}vh`;
-      star.style.left = `${Math.random() * 100}vw`;
-      star.style.animationDuration = `${Math.random() * 2 + 1}s`;
-      sky.appendChild(star);
-    }
-
-    const dataInicial = new Date('2023-08-30T20:50:00');
-
-    function calcularTempoPassado() {
-      const dataAtual = new Date();
-      let anos = dataAtual.getFullYear() - dataInicial.getFullYear();
-      let meses = dataAtual.getMonth() - dataInicial.getMonth();
-      let dias = dataAtual.getDate() - dataInicial.getDate();
-      let horas = dataAtual.getHours() - dataInicial.getHours();
-      let minutos = dataAtual.getMinutes() - dataInicial.getMinutes();
-      let segundos = dataAtual.getSeconds() - dataInicial.getSeconds();
-
-      if (segundos < 0) {
-        minutos--;
-        segundos += 60;
-      }
-      if (minutos < 0) {
-        horas--;
-        minutos += 60;
-      }
-      if (horas < 0) {
-        dias--;
-        horas += 24;
-      }
-      if (dias < 0) {
-        meses--;
-        const ultimoMes = new Date(dataAtual.getFullYear(), dataAtual.getMonth(), 0);
-        dias += ultimoMes.getDate();
-      }
-      if (meses < 0) {
-        anos--;
-        meses += 12;
-      }
-
-      return { anos, meses, dias, horas, minutos, segundos };
-    }
-
-    function atualizarContador() {
-      const { anos, meses, dias, horas, minutos, segundos } = calcularTempoPassado();
-      document.getElementById('contador').innerText =
-        `${anos} anos, ${meses} meses, ${dias} dias, ${horas} horas, ${minutos} minutos, ${segundos} segundos`;
-    }
-
-    atualizarContador();
-    setInterval(atualizarContador, 1000);
-  </script>
+    <div class="sky" id="sky"></div>
+    <h1>❤️ Contador do melhor dia da minha vida! ❤️</h1>
+    <div class="quadro">
+        <div class="contador" id="contador">0 anos, 0 meses, 0 dias, 0 horas, 0 minutos, 0 segundos</div>
+    </div>
+    <div class="moon"></div>
+    <script>
+        // JavaScript combinado
+        const sky = document.getElementById('sky');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = Math.random() * 3 + 2;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.top = `${Math.random() * 100}vh`;
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.animationDuration = `${Math.random() * 2 + 1}s`;
+            sky.appendChild(star);
+        }
+        
+        const dataInicial = new Date('2023-08-30T20:50:00');
+        
+        function calcularTempoPassado() {
+            const dataAtual = new Date();
+            let anos = dataAtual.getFullYear() - dataInicial.getFullYear();
+            let meses = dataAtual.getMonth() - dataInicial.getMonth();
+            let dias = dataAtual.getDate() - dataInicial.getDate();
+            let horas = dataAtual.getHours() - dataInicial.getHours();
+            let minutos = dataAtual.getMinutes() - dataInicial.getMinutes();
+            let segundos = dataAtual.getSeconds() - dataInicial.getSeconds();
+            if (segundos < 0) { minutos--; segundos += 60; }
+            if (minutos < 0) { horas--; minutos += 60; }
+            if (horas < 0) { dias--; horas += 24; }
+            if (dias < 0) { meses--; const ultimoMes = new Date(dataAtual.getFullYear(), dataAtual.getMonth(), 0); dias += ultimoMes.getDate(); }
+            if (meses < 0) { anos--; meses += 12; }
+            return { anos, meses, dias, horas, minutos, segundos };
+        }
+        
+        function atualizarContador() {
+            const { anos, meses, dias, horas, minutos, segundos } = calcularTempoPassado();
+            document.getElementById('contador').innerText = `${anos} anos, ${meses} meses, ${dias} dias, ${horas} horas, ${minutos} minutos, ${segundos} segundos`;
+        }
+        
+        atualizarContador();
+        setInterval(atualizarContador, 1000);
+    </script>
 </body>
 </html>
