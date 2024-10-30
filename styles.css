@@ -1,53 +1,64 @@
-/* Configuração básica do body da página */
 body {
-    font-family: 'Arial', sans-serif; /* Define a fonte geral da página */
+    font-family: 'Dancing Script', cursive; /* Fonte cursiva romântica */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #001; /* Fundo escuro que simula o céu noturno */
-    color: #eee; /* Cor clara para melhor contraste no fundo escuro */
+    background-color: #ffe6e9; /* Cor de fundo rosa claro */
+    color: #333;
     text-align: center;
-    overflow: hidden; /* Oculta qualquer elemento que saia das bordas da página */
 }
 
-/* Estilo do título principal */
 h1 {
     margin-bottom: 20px;
-    color: #e74c3c; /* Tom de vermelho */
-    font-family: 'Dancing Script', cursive; /* Fonte romântica para o título */
+    color: #d6336c; /* Rosa avermelhado para um toque romântico */
+    font-size: 2.5em;
+    text-shadow: 1px 1px 5px rgba(255, 192, 203, 0.5); /* Leve sombra rosa */
 }
 
-/* Estilo do próprio contador de tempo */
 .contador {
     font-size: 2em;
     margin: 20px;
     padding: 20px;
-    border: 2px solid #ff6f61; /* Cor rosa na borda do contador */
+    border: 2px solid #ff6f91; /* Rosa suave */
     border-radius: 15px;
-    background-color: rgba(236, 240, 241, 0.8); /* Fundo semitransparente */
-    transition: transform 0.2s, box-shadow 0.2s; /* Transições suaves ao passar o mouse */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 1s ease; /* Animação de fade-in */
+    background-color: rgba(255, 228, 225, 0.8); /* Fundo semitransparente rosa */
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(255, 182, 193, 0.5); /* Sombra rosa suave */
 }
 
-/* Efeito ao passar o mouse sobre o contador */
 .contador:hover {
-    transform: scale(1.05); /* Leve aumento de escala */
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3); /* Sombra mais forte */
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 182, 193, 0.7); /* Aumenta o brilho ao passar o mouse */
 }
 
-/* Fundo da página com estrelas */
-.sky {
+/* Estilo da lua */
+.moon {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #001; /* Fundo escuro */
-    z-index: -1; /* Colocado atrás do restante da página */
-    overflow: hidden; /* Esconde elementos que saem da área da página */
+    top: 50px;
+    right: 50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle at 30% 30%, rgba(173, 216, 230, 1), rgba(255, 255, 255, 0.8)); /* Gradiente azul claro */
+    border-radius: 50%; /* Forma circular da lua */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 
+                0 0 40px rgba(255, 255, 255, 0.3), 
+                10px 10px 15px rgba(0, 0, 0, 0.2); /* Brilho e sombra */
+    animation: moonGlow 5s infinite alternate ease-in-out, moonBlink 1.5s infinite alternate; /* Animações da lua */
+}
+
+/* Animação de piscar da lua */
+@keyframes moonBlink {
+    0% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.8;
+    }
 }
 
 /* Estilo das estrelas */
@@ -60,25 +71,69 @@ h1 {
 
 /* Animação de piscar das estrelas */
 @keyframes twinkle {
-    0% { opacity: 0.5; }
-    100% { opacity: 1; }
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
 }
 
-/* Estilo da lua */
-.moon {
+/* Efeito adicional nas estrelas */
+.star:nth-child(even) {
+    animation-duration: 2s; /* Duração mais longa para algumas estrelas */
+}
+
+.star:nth-child(odd) {
+    animation-duration: 1s; /* Duração mais curta para outras estrelas */
+}
+
+/* Crateras da lua */
+.moon::before, .moon::after {
+    content: '';
     position: absolute;
-    top: 50px;
-    right: 50px;
-    width: 200px;
-    height: 200px;
-    background: #fff;
-    border-radius: 50%; /* Forma circular da lua */
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Sombra para dar brilho */
-    z-index: 1; /* Coloca a lua em uma camada superior */
+    border-radius: 50%; /* Crateras arredondadas */
+    background: rgba(0, 0, 0, 0.15); /* Sombras para profundidade */
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.4); /* Sombra interna para aparência afundada */
 }
 
-/* Animação de fade-in */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+/* Crateras adicionais */
+.moon::before {
+    width: 50px;
+    height: 50px;
+    top: 60px;
+    left: 40px;
+}
+
+.moon::after {
+    width: 40px;
+    height: 40px;
+    top: 130px;
+    right: 50px;
+}
+
+.moon .cratera1, .moon .cratera2, .moon .cratera3 {
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* Posicionamento específico para cada cratera */
+.moon .cratera1 {
+    width: 30px;
+    height: 30px;
+    top: 100px;
+    left: 110px;
+}
+
+.moon .cratera2 {
+    width: 40px;
+    height: 40px;
+    top: 140px;
+    left: 70px;
+}
+
+.moon .cratera3 {
+    width: 25px;
+    height: 25px;
+    top: 40px;
+    right: 80px;
 }
