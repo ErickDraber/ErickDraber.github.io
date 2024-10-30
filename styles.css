@@ -1,0 +1,83 @@
+/* Configuração básica do body da página */
+body {
+    font-family: 'Arial', sans-serif; /* Define a fonte geral da página */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #001; /* Fundo escuro que simula o céu noturno */
+    color: #333;
+    text-align: center;
+    overflow: hidden; /* Oculta qualquer elemento que saia das bordas da página */
+}
+
+/* Estilo do título principal */
+h1 {
+    margin-bottom: 20px;
+    color: #e74c3c; /* Tom de vermelho */
+    font-family: 'Dancing Script', cursive; /* Fonte romântica para o título */
+}
+
+/* Estilo do próprio contador de tempo */
+.contador {
+    font-size: 2em;
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid #ff6f61; /* Cor rosa na borda do contador */
+    border-radius: 15px;
+    background-color: rgba(236, 240, 241, 0.8); /* Fundo semitransparente */
+    transition: transform 0.2s, box-shadow 0.2s; /* Transições suaves ao passar o mouse */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease; /* Animação de fade-in */
+}
+
+/* Efeito ao passar o mouse sobre o contador */
+.contador:hover {
+    transform: scale(1.05); /* Leve aumento de escala */
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3); /* Sombra mais forte */
+}
+
+/* Fundo da página com estrelas */
+.sky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #001; /* Fundo escuro */
+    z-index: -1; /* Colocado atrás do restante da página */
+    overflow: hidden; /* Esconde elementos que saem da área da página */
+}
+
+/* Estilo das estrelas */
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%; /* Deixa as estrelas redondas */
+    animation: twinkle 1.5s infinite alternate; /* Animação de piscar */
+}
+
+/* Animação de piscar das estrelas */
+@keyframes twinkle {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Estilo da lua */
+.moon {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 200px;
+    height: 200px;
+    background: #fff;
+    border-radius: 50%; /* Forma circular da lua */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Sombra para dar brilho */
+}
+
+/* Animação de fade-in */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
