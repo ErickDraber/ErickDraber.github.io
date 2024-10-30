@@ -1,30 +1,142 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Dancing Script', cursive; /* Fonte cursiva romântica */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f0f8ff;
+    background-color: #ffe6e9; /* Cor de fundo rosa claro */
     color: #333;
     text-align: center;
 }
 
 h1 {
     margin-bottom: 20px;
-    color: #2c3e50;
+    color: #d6336c; /* Rosa avermelhado para um toque romântico */
+    font-size: 2.5em;
+    text-shadow: 1px 1px 5px rgba(255, 192, 203, 0.5); /* Leve sombra rosa */
 }
 
 .contador {
     font-size: 2em;
     margin: 20px;
     padding: 20px;
-    border: 2px solid #3498db;
-    border-radius: 10px;
-    background-color: #ecf0f1;
-    transition: transform 0.2s;
+    border: 2px solid #ff6f91; /* Rosa suave */
+    border-radius: 15px;
+    background-color: rgba(255, 228, 225, 0.8); /* Fundo semitransparente rosa */
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(255, 182, 193, 0.5); /* Sombra rosa suave */
 }
 
 .contador:hover {
     transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 182, 193, 0.7); /* Aumenta o brilho ao passar o mouse */
+}
+/* Estilo da lua */
+.moon {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle at 30% 30%, rgba(173, 216, 230, 1), rgba(255, 255, 255, 0.8)); /* Gradiente azul claro */
+    border-radius: 50%; /* Forma circular da lua */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 
+                0 0 40px rgba(255, 255, 255, 0.3), 
+                10px 10px 15px rgba(0, 0, 0, 0.2); /* Brilho e sombra */
+    animation: moonGlow 5s infinite alternate ease-in-out, moonBlink 1.5s infinite alternate; /* Animações da lua */
+}
+
+/* Animação de piscar da lua */
+@keyframes moonBlink {
+    0% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}
+
+/* Estilo das estrelas */
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%; /* Deixa as estrelas redondas */
+    animation: twinkle 1.5s infinite alternate; /* Animação de piscar */
+}
+
+/* Animação de piscar das estrelas */
+@keyframes twinkle {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+
+/* Efeito adicional nas estrelas */
+.star:nth-child(even) {
+    animation-duration: 2s; /* Duração mais longa para algumas estrelas */
+}
+
+.star:nth-child(odd) {
+    animation-duration: 1s; /* Duração mais curta para outras estrelas */
+}
+
+/* Crateras da lua */
+.moon::before, .moon::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%; /* Crateras arredondadas */
+    background: rgba(0, 0, 0, 0.15); /* Sombras para profundidade */
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.4); /* Sombra interna para aparência afundada */
+}
+
+/* Crateras adicionais */
+.moon::before {
+    width: 50px; /* Aumenta a cratera */
+    height: 50px; /* Aumenta a cratera */
+    top: 60px;
+    left: 40px;
+}
+
+.moon::after {
+    width: 40px; /* Aumenta a cratera */
+    height: 40px; /* Aumenta a cratera */
+    top: 130px;
+    right: 50px;
+}
+
+.moon .cratera1 {
+    width: 30px; /* Aumenta a cratera */
+    height: 30px; /* Aumenta a cratera */
+    top: 100px;
+    left: 110px;
+    background: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.moon .cratera2 {
+    width: 40px; /* Aumenta a cratera */
+    height: 40px; /* Aumenta a cratera */
+    top: 140px;
+    left: 70px;
+    background: rgba(0, 0, 0, 0.15);
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.4);
+}
+
+.moon .cratera3 {
+    width: 25px; /* Aumenta a cratera */
+    height: 25px; /* Aumenta a cratera */
+    top: 40px;
+    right: 80px;
+    background: rgba(0, 0, 0, 0.25);
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
 }
